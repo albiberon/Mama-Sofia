@@ -1,13 +1,17 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
+import RecipeList from './components/RecipeList';
+import InnerPageHeader from './components/InnerPageHeader';
+import SingleRecipe from './components/SingleRecipe';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 
 function Home(){
     return <div className="App">
     <Navbar/>
     <Header/>
-    <h1>Recette App!</h1>
+    <RecipeList/>
   </div>
  };
 
@@ -46,6 +50,10 @@ function Submit() {
 function Mission() {
   return <div className="App"> <Navbar/> <h1>Mission page</h1> </div>
 }
+
+function Sample() {
+  return <div className="App"> <Navbar/> <InnerPageHeader/> <SingleRecipe/> </div>
+}
  
 function App() {
   return (
@@ -61,6 +69,8 @@ function App() {
         <Route path="/recipes" exact component={Recipes}/>
         <Route path="/submit" exact component={Submit}/>
         <Route path="/mission" exact component={Mission}/>
+
+        <Route path="/sample-recipe" exact component={Sample}/>
 
       </Switch>
     </Router>

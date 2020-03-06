@@ -37,7 +37,7 @@ var mealThumbnail = {
 
 function MealSuggestions() {
 return <div className="container">
-    <h1 class="mb-5">Here are our suggestions for today!</h1>
+    <h1 className="mb-5">Here are our suggestions for today!</h1>
 
                     <div className="row">
                         <div className="col-lg-4 col-sm-6 grow-shadow">

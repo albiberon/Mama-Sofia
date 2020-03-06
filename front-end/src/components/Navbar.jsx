@@ -1,11 +1,11 @@
 import React from "react";
-import logo from "../../src/recette-logo.svg";
+import logo from "../../src/mamasofia-logo.svg";
 import { Link } from "react-router-dom";
 
 function Navbar() {
     return <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/" className="navbar-brand">
-        <img src={logo} width="200" height="40" alt="Recette logo"/>
+        <img src={logo} width="290" height="50" alt="Recette logo"/>
       </Link>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -65,6 +65,7 @@ function Navbar() {
   </div>
 
     </nav>
+
 };
 
 export default Navbar;
