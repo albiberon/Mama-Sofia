@@ -7,18 +7,18 @@ function RecipeSearchBar() {
     </button>
     <a className="navbar-brand text-white">Search for recipes</a>
   
-    <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <div className="collapse navbar-collapse" id="recipe-navbar">
       <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li className="nav-item active pl-10">
-          <a className="nav-link text-white">All <span class="sr-only">(current)</span></a>
+        <li className="nav-item active pl-10" id="all-search">
+          <a className="nav-link text-white">All <span className="sr-only"></span></a>
         </li>
-        <li className="nav-item pl-3">
+        <li className="nav-item pl-3" id="breakfast-search">
           <a className="nav-link text-white">Breakfast</a>
         </li>
-        <li className="nav-item pl-3">
+        <li className="nav-item pl-3" id="lunch-search">
           <a className="nav-link disabled text-white">Lunch</a>
         </li>
-        <li className="nav-item pl-3">
+        <li className="nav-item pl-3" id ="dinner-search">
           <a className="nav-link disabled text-white">Dinner</a>
         </li>
       </ul>

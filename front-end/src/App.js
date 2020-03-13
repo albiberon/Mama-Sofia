@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import RecipeList from './components/RecipeList';
-import InnerPageHeader from './components/InnerPageHeader';
+import LoginSection from "./components/LoginSection";
 import SingleRecipe from './components/SingleRecipe';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ function Home(){
  };
 
  function Login() {
-   return <div className="App"> <Navbar/> <h1> Login page</h1> </div>
+   return <div className="App"> <Navbar/><LoginSection/> </div>
  };
 
  function Signup() {
@@ -52,7 +52,7 @@ function Mission() {
 }
 
 function Sample() {
-  return <div className="App"> <Navbar/> <InnerPageHeader/> <SingleRecipe/> </div>
+  return <div className="App"> <Navbar/> <SingleRecipe/> </div>
 }
  
 function App() {

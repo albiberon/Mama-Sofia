@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Damion&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <meta
       name="description"
@@ -21,25 +22,86 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
+
 $( document ).ready(function() {
+
+  var searchValue;
 $("#searchInput").on("keyup", function () {
-    var value = $(this)
+    searchValue = $(this)
                 .val()
                 .toLowerCase();
-    $(".recipe-card .card").filter(function () {
+    $("#recipe-list .recipe-card .card").filter(function () {
                 $(this).parent().toggle(
                     $(this)
                         .text()
                         .toLowerCase()
-                        .indexOf(value) > -1
+                        .indexOf(searchValue) > -1
                 );
-        if (!value.length) {
-                $(".recipe-card").each(function () {
+        if (!searchValue.length) {
+                $("#recipe-list .recipe-card").each(function () {
                     $(this).show();
                 });
         }
     });
 });
+
+$('#all-search').on("click", function() {
+    searchValue = "";
+    $("#searchInput").val("");
+    $("#recipe-list .recipe-card .card").filter(function () {
+                $(this).parent().toggle(
+                    $(this)
+                        .text()
+                        .toLowerCase()
+                        .indexOf(searchValue) > -1
+                );
+});
+});
+$('#breakfast-search').on("click", function() {
+    searchValue = "breakfast";
+    $("#searchInput").val("");
+    $("#recipe-list .recipe-card .card").filter(function () {
+                $(this).parent().toggle(
+                    $(this)
+                        .text()
+                        .toLowerCase()
+                        .indexOf(searchValue) > -1
+                );
+});
+});
+$('#lunch-search').on("click", function() {
+    searchValue = "lunch";
+    $("#searchInput").val("");
+    $("#recipe-list .recipe-card .card").filter(function () {
+                $(this).parent().toggle(
+                    $(this)
+                        .text()
+                        .toLowerCase()
+                        .indexOf(searchValue) > -1
+                );
+});
+});
+
+$('#dinner-search').on("click", function() {
+    searchValue = "dinner";
+    $("#searchInput").val("");
+    $("#recipe-list .recipe-card .card").filter(function () {
+                $(this).parent().toggle(
+                    $(this)
+                        .text()
+                        .toLowerCase()
+                        .indexOf(searchValue) > -1
+                );
+});
+});
+
+$('.nav-item').on('click', function(){
+  $('.nav-item').each(function(){
+    $(this).removeClass('active');
+  });
+  $(this).toggleClass('active');
+});
+
 });
     </script>
     <script src="../src/index.js" type="text/jsx"></script>

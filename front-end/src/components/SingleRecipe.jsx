@@ -1,31 +1,55 @@
 import React from "react";
+import Nutritions from './Nutritions';
+import Recipes from '../Recipes';
+import SinglePageHeader from './InnerPageHeader';
+import $ from 'jquery';
+
 
 function SingleRecipe() {
-    return <div className="container space-top-bottom">
-    <div className="row">
-        <div className="col-12">
-        <h1 className="text-center">Sample Recipe</h1>
-        </div>
-        <div className="col-8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis nulla aliquet, elementum est sed, porttitor est. Aenean eu nisi et risus convallis eleifend sed at sapien. </p>
-            <h5>Preparation
-            </h5>
-            <p>Nullam lobortis massa felis, ut aliquam nulla tristique nec. Maecenas finibus dictum blandit. Etiam sit amet eros metus. Aliquam nec feugiat lorem, sit amet feugiat nulla. Nulla eleifend augue sed augue facilisis, vitae aliquam turpis consequat. Suspendisse potenti. Aliquam a est blandit, euismod dolor eu, egestas nisi. Etiam interdum arcu lectus, sit amet fermentum est pellentesque vitae. In quis diam sed magna ornare pharetra ac imperdiet libero.</p>
+    const listItems = Recipes.data[0].ingredients.map((ingredient) =>
+    <li>{ingredient}</li>
+    
+    );
 
-        </div>
-        <div className="col-3  pl-3">
-        <h5 className="text-center">Ingredients</h5>
-            <ul>
-                <li>2 Ingredient</li>
-                <li>500g Ingredient</li>
-                <li>2 Ingredient</li>
-                <li>500g Ingredient</li>
-                <li>2 Ingredient</li>
-                <li>500g Ingredient</li>
-            </ul>
-        </div>
-    </div>
-    </div>
+    return <div className="container-fluid nopadding-container">
+        <SinglePageHeader
+            imgURL = {Recipes.data[0].imgURL}
+            name =  {Recipes.data[0].name}
+        />
+                <div className="container single-recipe-container">
+                    <div className="row">
+                        <div className="col-12"> 
+                            <br/>
+                        </div>
+                        <div className="col-8">
+                            <p>{Recipes.data[0].shortDescription} </p>
+                            <hr/>
+                            <h5>Preparation
+                            </h5>
+                            <p>{Recipes.data[0].preparation}</p>
+                            <hr/>
+                            <h5>Nutritions</h5>
+                            <Nutritions
+                                kcal = {Recipes.data[0].nutritionalValues.kcal}
+                                fat = {Recipes.data[0].nutritionalValues.fat}
+                                saturates = {Recipes.data[0].nutritionalValues.saturates}
+                                carbs = {Recipes.data[0].nutritionalValues.carbs}
+                                sugars = {Recipes.data[0].nutritionalValues.sugars}
+                                fibre = {Recipes.data[0].nutritionalValues.fibre}
+                                protein = {Recipes.data[0].nutritionalValues.protein}
+                                salt = {Recipes.data[0].nutritionalValues.salt}
+                            />
+                        </div>
+                        <div className="col pl-3">
+                            <h5 className="ml-4">Ingredients</h5>
+                            <ul className="ingredients-list" id="ingredients">
+                            {listItems}                         
+                            </ul>
+                            <img width="300" src={Recipes.data[0].imgURL}/>
+                        </div>
+                    </div>
+                </div>
+            </div>    
 
 };
 

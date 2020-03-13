@@ -26,7 +26,7 @@ code {
 @media (min-width: 768px){
  .masthead {
     padding-top: 5rem;
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
 }
 }
 
@@ -301,4 +301,163 @@ header#narrow-height {
 
 .recipe-category {
   display: none;
+}
+
+#all-search:hover {
+  cursor: pointer;
+}
+
+#dinner-search:hover {
+  cursor: pointer;
+}
+
+#breakfast-search:hover {
+  cursor: pointer;
+}
+
+#lunch-search:hover {
+  cursor: pointer;
+}
+
+a.navbar-brand.text-white {
+  font-weight: 900;
+}
+
+#recipe-navbar li.nav-item {
+  text-align: center;
+  min-width: 80px;
+}
+
+
+
+/*  */
+li.nav-item.active a.nav-link.text-white {
+  min-width: 80px;
+  text-align: center;
+  background-color: #4dad28;
+}
+a.nav-link.text-white {
+  min-width: 80px;
+  text-align: center;
+}
+
+.breakfast-arrow {
+  width: 190px;
+}
+
+.meal-suggestions .recipe-card:nth-of-type(2)::before {
+  content: 'Breakfast';
+  color: white;
+  font-family: 'Damion';
+  font-size: 55px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  margin-bottom: -20px;
+  z-index: 99;
+  text-shadow: -1px -1px 0 #28a745, 1px -1px 0 #28A74C, -1px 1px 0 #28a745, 2px 2px 0 #28a745
+  ;
+}
+.meal-suggestions .recipe-card:nth-of-type(3)::before {
+  content: 'Lunch';
+  color: white;
+  font-family: 'Damion';
+  font-size: 55px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  margin-bottom: -20px;
+  z-index: 99;
+  text-shadow: -1px -1px 0 #28a745, 1px -1px 0 #28A74C, -1px 1px 0 #28a745, 2px 2px 0 #28a745
+  ;
+}
+
+.meal-suggestions .recipe-card:nth-of-type(4)::before {
+  content: 'Dinner';
+  color: white;
+  font-family: 'Damion';
+  font-size: 55px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  margin-bottom: -20px;
+  z-index: 99;
+  text-shadow: -1px -1px 0 #28a745, 1px -1px 0 #28A74C, -1px 1px 0 #28a745, 2px 2px 0 #28a745
+  ;
+}
+
+@media (max-width: 768px) and (min-width: 600px){
+  .col-lg-3.col-sm-6.grow-shadow.recipe-card {
+    max-width: 33%;
+}
+.meal-suggestions {
+  min-width: 100%;
+}
+
+.meal-suggestions .col-2 {
+display: none;
+}
+.meal-suggestions h1{
+  padding-top: 30px;
+  }
+#recipe-list .container.space-top-bottom{
+  min-width: 100%;
+}
+
+.recipe-card .card {
+  height: 90%;
+}
+
+}
+
+@media screen and (min-width: 51.3125em) {
+.nutrition {
+    margin: 10px 0 0;
+    width: auto;
+    padding-left: 0px;
+}
+}
+
+.nutrition>li {
+  line-height: 1.8;
+  letter-spacing: 0;
+  display: inline-block;
+  text-align: center;
+  margin: 0 5px 8px 0;
+  min-width: 57px;
+  border-radius: 3px 3px 3px 3px;
+  border: 0.5px solid #66bc46;
+}
+
+.nutrition__label {
+  font-family: "Helvetica Neue",Helvetica,Arial;
+  font-size: 12px;
+  line-height: 18px;
+  color: #767676;
+  font-style: normal;
+  font-size: 11px;
+  background: #66bc46;
+  color: white;
+  position: relative;
+  display: block;
+  padding: 3px 0;
+}
+
+.innerpage-header {
+  margin-bottom: 0px!important;
+}
+
+.single-recipe-container {
+  margin-top: 25px;
+}
+
+.nopadding-container {
+  padding-left: 0px!important;
+  padding-right: 0px!important;
 }
