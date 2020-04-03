@@ -7,7 +7,7 @@ import $ from 'jquery';
 
 function SingleRecipe() {
     const listItems = Recipes.data[0].ingredients.map((ingredient) =>
-    <li>{ingredient}</li>
+    <li className="border-bottom">{ingredient}</li>
     
     );
 
@@ -21,7 +21,7 @@ function SingleRecipe() {
                         <div className="col-12"> 
                             <br/>
                         </div>
-                        <div className="col-8">
+                        <div className="col-lg-8 col-md-6 col-sm-12">
                             <p>{Recipes.data[0].shortDescription} </p>
                             <hr/>
                             <h5>Preparation
@@ -40,7 +40,7 @@ function SingleRecipe() {
                                 salt = {Recipes.data[0].nutritionalValues.salt}
                             />
                         </div>
-                        <div className="col pl-3">
+                        <div className="col-lg-4 col-md-6 col-sm-12 pl-3">
                             <h5 className="ml-4">Ingredients</h5>
                             <ul className="ingredients-list" id="ingredients">
                             {listItems}                         
