@@ -1,20 +1,38 @@
 import React from "react";
 import Nutritions from './Nutritions';
-import Recipes from '../Recipes';
 import SinglePageHeader from './InnerPageHeader';
-import $ from 'jquery';
+import { useEffect } from "react";
+import { useState } from "react";
 
 
-function SingleRecipe() {
-    const listItems = Recipes.data[0].ingredients.map((ingredient) =>
-    <li className="border-bottom">{ingredient}</li>
+function SingleRecipe(props) {
+
+    const [recipe, setRecipe] = useState();
+
+    useEffect(()=>{
+        const fetchData = async () =>{
+            const res = await fetch(`http://localhost:8081/recipe/${props._id}`);
+            res.json().then((res) => setRecipe(res));
+        }
+        fetchData();
+    }, []);
+
+    console.log(recipe)
+
+    let listItems = null;
+    if(recipe)
+    {listItems = recipe.ingredients.map((ingredient) =>
+        <li className="border-bottom">{ingredient}</li>
+    );}
     
-    );
-
+        if(!recipe){
+            return <div className="container-fluid nopadding-container">Nope</div>
+        }
     return <div className="container-fluid nopadding-container">
+
         <SinglePageHeader
-            imgURL = {Recipes.data[0].imgURL}
-            name =  {Recipes.data[0].name}
+            imgURL = {recipe.imgURL}
+            name =  {recipe.name}
         />
                 <div className="container single-recipe-container">
                     <div className="row">
@@ -22,22 +40,22 @@ function SingleRecipe() {
                             <br/>
                         </div>
                         <div className="col-lg-8 col-md-6 col-sm-12">
-                            <p>{Recipes.data[0].shortDescription} </p>
+                            <p>{recipe.shortDescription} </p>
                             <hr/>
                             <h5>Preparation
                             </h5>
-                            <p>{Recipes.data[0].preparation}</p>
+                            <p>{recipe.preparation}</p>
                             <hr/>
                             <h5>Nutritions</h5>
                             <Nutritions
-                                kcal = {Recipes.data[0].nutritionalValues.kcal}
-                                fat = {Recipes.data[0].nutritionalValues.fat}
-                                saturates = {Recipes.data[0].nutritionalValues.saturates}
-                                carbs = {Recipes.data[0].nutritionalValues.carbs}
-                                sugars = {Recipes.data[0].nutritionalValues.sugars}
-                                fibre = {Recipes.data[0].nutritionalValues.fibre}
-                                protein = {Recipes.data[0].nutritionalValues.protein}
-                                salt = {Recipes.data[0].nutritionalValues.salt}
+                                kcal = {recipe.nutritionalValues.kcal}
+                                fat = {recipe.nutritionalValues.fat}
+                                saturates = {recipe.nutritionalValues.saturates}
+                                carbs = {recipe.nutritionalValues.carbs}
+                                sugars = {recipe.nutritionalValues.sugars}
+                                fibre = {recipe.nutritionalValues.fibre}
+                                protein = {recipe.nutritionalValues.protein}
+                                salt = {recipe.nutritionalValues.salt}
                             />
                         </div>
                         <div className="col-lg-4 col-md-6 col-sm-12 pl-3">
@@ -45,7 +63,7 @@ function SingleRecipe() {
                             <ul className="ingredients-list" id="ingredients">
                             {listItems}                         
                             </ul>
-                            <img width="300" src={Recipes.data[0].imgURL}/>
+                            <img width="300" src={recipe.imgURL}/>
                         </div>
                     </div>
                 </div>
