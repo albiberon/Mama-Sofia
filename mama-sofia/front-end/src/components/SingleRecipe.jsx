@@ -26,7 +26,7 @@ function SingleRecipe(props) {
     );}
     
         if(!recipe){
-            return <div className="container-fluid nopadding-container">Nope</div>
+            return <div className="container-fluid nopadding-container">Nope, there is nothing to show</div>
         }
     return <div className="container-fluid nopadding-container">
 
@@ -57,13 +57,29 @@ function SingleRecipe(props) {
                                 protein = {recipe.nutritionalValues.protein}
                                 salt = {recipe.nutritionalValues.salt}
                             />
+                            <hr/>
+                            <div className = "row">
+                                <div className="col">
+                                    <h5>Time</h5>
+                                    {recipe.time}
+                                </div>
+                                <div className="col">
+                                    <h5>Portion</h5>
+                                    {recipe.portion}
+                                </div>
+                                <div className="col">
+                                    <h5>Categories</h5>
+                                    {recipe.category}
+                                </div>
+
+                            </div>
                         </div>
                         <div className="col-lg-4 col-md-6 col-sm-12 pl-3">
                             <h5 className="ml-4">Ingredients</h5>
                             <ul className="ingredients-list" id="ingredients">
                             {listItems}                         
                             </ul>
-                            <img width="300" src={recipe.imgURL}/>
+                            <img loading="lazy" alt="Recipe photo" width="300" src={recipe.imgURL}/>
                         </div>
                     </div>
                 </div>

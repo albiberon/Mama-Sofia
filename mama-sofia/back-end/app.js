@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
 const cors = require('cors');
 
 const app = express();
@@ -28,7 +29,7 @@ app.get('/recipes', async (request, response) => {
   }
 });
 
-app.get('/recipe:id', async (request, response) => {
+app.get('/recipe/:id', async (request, response) => {
   try {
     var recipe = await Recipe.findById(request.params.id).exec();
     response.send(recipe);
@@ -37,7 +38,7 @@ app.get('/recipe:id', async (request, response) => {
   }
 });
 
-app.put('/recipe:id', async (request, response) => {
+app.put('/recipe/:id', async (request, response) => {
   try {
     var recipe = await Recipe.findById(request.params.id).exec();
     recipe.set(request.body);
@@ -48,7 +49,7 @@ app.put('/recipe:id', async (request, response) => {
   }
 });
 
-app.delete('/recipe:id', async (request, response) => {
+app.delete('/recipe/:id', async (request, response) => {
   try {
     var result = await Recipe.deleteOne({ _id: request.params.id }).exec();
     response.send(result);
@@ -310,11 +311,11 @@ const recipe7 = new Recipe({
   name: "Vegetarian fajitas",
   imgURL: "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2018/12/veggie-fajitas.jpg",
   shortDescription: "Looking for a quick and easy veggie family meal?",
-  preparation: `To make the fajita mix, take two or three strips from each colour of pepper and finely chop them. Set aside. Heat the oil in a frying pan and fry the remaining pepper strips and the onion until soft and starting to brown at the edges. 
+  preparation: `To make the fajita mix, take two or three strips from each colour of pepper and finely chop them. Set aside. Heat the oil in a frying pan and fry the remaining pepper strips and the onion until soft and starting to brown at the edges. 
 Cool slightly and mix in the chopped raw peppers. Add the garlic and cook for 1 min, then add the spices and stir. 
 Cook for a couple of mins more until the spices become aromatic, then add half the lime juice and season. Transfer to a dish, leaving any juices behind, and keep warm.
 Tip the black beans into the same pan, then add the remaining lime juice and plenty of seasoning. Stir the beans around the pan to warm them through and help them absorb any flavours of the fajita mix, then stir through the coriander.
-Warm the tortillas in a microwave or in a low oven, then wrap them so they don’t dry out. Serve the tortillas with the fajita mix, beans, avocado and soured cream for everyone to help themselves.`,
+Warm the tortillas in a microwave or in a low oven, then wrap them so they don’t dry out. Serve the tortillas with the fajita mix, beans, avocado and soured cream for everyone to help themselves.`,
   category: "breakfast",
   ingredients: [
       "400g can black beans, drained",

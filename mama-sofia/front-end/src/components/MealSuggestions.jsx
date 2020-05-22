@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Recipes from "../Recipes";
 import RecipeCard from "./RecipeCard";
+import { useState } from "react";
 
 function MealSuggestions() {
+
+    const [Recipes, setRecipes] = useState({data: []});
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            const res = await fetch("http://localhost:8081/recipes");
+            res.json().then(res => setRecipes({data: res}));
+        }
+        fetchData();
+    }, []);
 
     var breakfastRecipes = [];
     var lunchRecipes = [];
@@ -13,7 +24,7 @@ function MealSuggestions() {
 
     function breakfastSuggestion() { 
             Recipes.data.map(function(e){
-                if(e.category === "breakfast"){
+                if(e.category[0] === "breakfast"){
                     breakfastRecipes.push(e);
                 }
             });
@@ -22,7 +33,7 @@ function MealSuggestions() {
 
     function lunchSuggestion() { 
         Recipes.data.map(function(e){
-            if(e.category === "lunch"){
+            if(e.category[0] === "lunch"){
                 lunchRecipes.push(e);
             }
         });
@@ -31,13 +42,12 @@ selectedLunch = lunchRecipes[Math.floor(Math.random() * (lunchRecipes.length))];
 
 function dinnerSuggestion() { 
     Recipes.data.map(function(e){
-        if(e.category === "dinner"){
+        if(e.category[0] === "dinner"){
             dinnerRecipes.push(e);
         }
     });
 selectedDinner = dinnerRecipes[Math.floor(Math.random() * (dinnerRecipes.length))];
 };
-
 
 return <div className="container meal-suggestions">
             <h1 className="mb-5">Here are our suggestions for today!</h1>
@@ -47,25 +57,29 @@ return <div className="container meal-suggestions">
                     <div className="row">
                         <div className = "col-2">
                     </div>
-
-                    <RecipeCard
+                    { Recipes.data.length && 
+                    (<><RecipeCard
                         img={selectedBreakfast.imgURL}
                         name={selectedBreakfast.name}
                         shortDescription={selectedBreakfast.shortDescription}
                         category={selectedBreakfast.category}
+                        _id={selectedBreakfast._id}
                     />
                     <RecipeCard
                         img={selectedLunch.imgURL}
                         name={selectedLunch.name}
                         shortDescription={selectedLunch.shortDescription}
                         category={selectedLunch.category}
+                        _id={selectedLunch._id}
                     />
                     <RecipeCard
                         img={selectedDinner.imgURL}
                         name={selectedDinner.name}
                         shortDescription={selectedDinner.shortDescription}
                         category={selectedDinner.category}
-                    />
+                        _id={selectedDinner._id}
+                    /></>)
+                    }
                     <div className = "col-2"></div>
                     </div>
          </div>

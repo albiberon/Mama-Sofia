@@ -2,8 +2,10 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+
+// Checking if the header text exists
+test('Checks if the header exists', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+  const linkElement = getByText(/Here are our suggestions for today!/i);
   expect(linkElement).toBeInTheDocument();
 });

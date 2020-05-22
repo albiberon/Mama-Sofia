@@ -268,7 +268,7 @@ code {
 }
 
 .recipe-searchbar {
-  background-color: #67bc46!important;
+  background-color: #258101!important;
   color: white!important;
 }
 
@@ -334,7 +334,7 @@ a.navbar-brand.text-white {
 li.nav-item.active a.nav-link.text-white {
   min-width: 80px;
   text-align: center;
-  background-color: #4dad28;
+  background-color: #207101;
 }
 a.nav-link.text-white {
   min-width: 80px;
@@ -442,7 +442,7 @@ display: none;
   color: #767676;
   font-style: normal;
   font-size: 11px;
-  background: #66bc46;
+  background: #165200;
   color: white;
   position: relative;
   display: block;
